@@ -1,13 +1,13 @@
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/helloworldapp-420202/HelloWorldApp', '.']
+  args: ['build', '-t', 'gcr.io/helloworldapp-420202/helloworldapp', '.']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/helloworldapp-420202/HelloWorldApp']
+  args: ['push', 'gcr.io/helloworldapp-420202/helloworldapp']
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
-  args: ['run', 'deploy', 'gcr.io/helloworldapp-420202/HelloWorldApp', '--image', 'gcr.io/helloworldapp-420202/HelloWorldApp', '--region', 'us-central1', '--platform', 'managed','--port','80']
+  args: ['run', 'deploy', 'gcr.io/helloworldapp-420202/helloworldapp', '--image', 'gcr.io/helloworldapp-420202/helloworldapp', '--region', 'us-central1', '--platform', 'managed','--port','80']
 images:
-- gcr.io/helloworldapp-420202/HelloWorldApp
+- gcr.io/helloworldapp-420202/helloworldapp
